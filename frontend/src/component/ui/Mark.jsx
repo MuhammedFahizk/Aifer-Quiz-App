@@ -5,7 +5,6 @@ import { setQuestNum } from "../../Redux/feathers/quest";
 const Mark = ({ data }) => {
   const dispatch = useDispatch();
   const { questNum: currentQuestNum, results } = useSelector((state) => state.quest);
-console.log(results);
 
   // Find the result object for the current question's serialNo
   const currentResult = results.find((result) => result.serialNo === data.serialNo);
@@ -14,16 +13,16 @@ console.log(results);
   const getStatusColor = () => {
     switch (currentResult?.status) {
       case "correct":
-        return "bg-green-500"; 
-      case "error":
-        return "bg-red-500"; 
-        // Red for incorrect answers
+        return "bg-green-500"; // Green for correct answers
+      case "incorrect":
+        return "bg-red-500"; // Red for incorrect answers
       default:
         return currentQuestNum === data.serialNo ? "bg-blue-500" : "bg-gray-300"; // Blue for selected, gray for default
     }
   };
 
   const handleMark = () => {
+    // When clicked, set the current question number
     dispatch(setQuestNum(data.serialNo));
   };
 

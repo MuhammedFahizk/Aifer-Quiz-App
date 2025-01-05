@@ -29,9 +29,9 @@ const Quiz = () => {
         const quizData = await getQuizById(quizId);
         setCount(quizData.count);
         dispatch(setQuestNum(1));
-        dispatch(initializeResults(quizData.quiz.questions));
+        dispatch(initializeResults(quizData.quiz))
         dispatch(setQuizID(quizId));
-
+        
         setQuiz(quizData.quiz);
       } catch (error) {
         setError("Failed to fetch quiz. Please try again later.");

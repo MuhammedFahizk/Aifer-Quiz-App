@@ -3,6 +3,7 @@ import Div from "../component/common/Div";
 import QuizCard from "../component/ui/QuizCard";
 import { fetchTests } from "../services/postApi";
 
+
 const Tests = () => {
   const [quizzes, setQuizzes] = useState([]);
   const [loading, setLoading] = useState(true);

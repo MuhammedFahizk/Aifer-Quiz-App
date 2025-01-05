@@ -169,6 +169,7 @@ export const checkAnswer = async (req, res) => {
     res.json({
       success: true,
       isCorrect,
+      answer: question.correctAnswer+1,
       message: isCorrect ? "Correct answer" : "Incorrect answer",
     });
   } catch (error) {
