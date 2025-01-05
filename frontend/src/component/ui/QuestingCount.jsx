@@ -1,6 +1,7 @@
 import Div from "../common/Div";
 import Mark from "./Mark";
 import Text from "../common/Text";
+import Result from "./Result";
 
 export const QuestingCount = ({ count, questions, currentQuestion }) => {
   return (
@@ -24,6 +25,9 @@ export const QuestingCount = ({ count, questions, currentQuestion }) => {
           );
         })}
       </Div>
+        <Div className={'p-2'}>
+        <Result/>
+        </Div>
     </Div>
   );
 };
