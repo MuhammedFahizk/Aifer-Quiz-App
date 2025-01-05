@@ -1,6 +1,6 @@
 import { Router } from "express";
 const router = Router();
-import quizRoute from './quiz.controller.js'
+import quizRoute from './quiz.js'
 
 router.use("/",quizRoute)
 
