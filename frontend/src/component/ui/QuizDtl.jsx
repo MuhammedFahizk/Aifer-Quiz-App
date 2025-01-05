@@ -9,7 +9,8 @@ const QuizDtl = ({ question, totalQuestions }) => {
   const dispatch = useDispatch();
   const currentQuestNum = useSelector((state) => state.quest.questNum);
   const { results } = useSelector((state) => state.quest);
-
+  console.log(results);
+  
   // Handlers for Previous and Next buttons
   const handlePrev = () => {
     if (currentQuestNum > 1) {
@@ -62,7 +63,7 @@ const QuizDtl = ({ question, totalQuestions }) => {
       </Div>
 
       {/* Display the current answer status */}
-      {currentResult?.answer && (
+      {currentResult.answer && (
         <Text
           className={`text-lg font-medium ${
             currentResult.status === "correct"

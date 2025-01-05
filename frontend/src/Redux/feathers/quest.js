@@ -13,7 +13,7 @@ const questSlice = createSlice({
     },
     initializeResults: (state, action) => {   
       if (state.quizID !== action.payload.quizID) { 
-        state.results = action.payload.questions.map((question, index) => ({
+        state.results = action.payload.map((question, index) => ({
           serialNo: question.serialNo, 
           status: "default",
           answer: null,
@@ -29,6 +29,7 @@ const questSlice = createSlice({
       const result = state.results.find((r) => r.serialNo === serialNo);
       if (result) {
         result.status = status; 
+        result.answer = action.payload.answer;
       }
     },
    

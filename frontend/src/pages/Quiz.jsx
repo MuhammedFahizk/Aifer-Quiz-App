@@ -22,14 +22,13 @@ const Quiz = () => {
   const { questNum } = useSelector((state) => state.quest);
   const dispatch = useDispatch();
 
-  // Fetch quiz data
   useEffect(() => {
     const fetchQuiz = async () => {
       try {
         const quizData = await getQuizById(quizId);
         setCount(quizData.count);
         dispatch(setQuestNum(1));
-        dispatch(initializeResults(quizData.quiz))
+        dispatch(initializeResults(quizData.quiz.questions))
         dispatch(setQuizID(quizId));
         
         setQuiz(quizData.quiz);
@@ -44,7 +43,6 @@ const Quiz = () => {
     fetchQuiz();
   }, [quizId]);
 
-  // Fetch question data based on questNum
   useEffect(() => {
     const fetchQuestionData = async () => {
       try {
